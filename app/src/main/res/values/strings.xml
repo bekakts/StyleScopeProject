@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">StyleScopeProject</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="splash_title">Ваш проводник в мир дизайна</string>
+    <string name="sorry_bad_request">Извините, нам не удалось ничего найти по запросу</string>
+    <string name="try_to_search_another">Попробуйте поискать другое</string>
+
+</resources>
