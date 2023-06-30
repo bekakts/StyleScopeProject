@@ -1,5 +1,9 @@
 package com.example.stylescopeproject.presentation.model.designer
 
+import com.example.stylescopeproject.domain.model.designer.DesignerDetailModel
+import com.example.stylescopeproject.domain.model.designer.DesignerGalleryModel
+import com.example.stylescopeproject.domain.model.designer.DesignerModel
+
 
 data class DesignerUI(
     val id: Int,
@@ -9,6 +13,16 @@ data class DesignerUI(
     val occupation: String,
     val rating: String,
     val countReviews: String
+)
+
+fun DesignerModel.toUI() = DesignerUI(
+    id = id,
+    name = name,
+    photo = photo,
+    companyTitle = companyTitle,
+    occupation = occupation,
+    rating = rating,
+    countReviews = countReviews
 )
 
 data class DesignerDetailUI(
@@ -26,7 +40,27 @@ data class DesignerDetailUI(
     val countReviews:String
 )
 
+fun DesignerDetailModel.toUI() = DesignerDetailUI(
+    name = name,
+    surname = surname,
+    photo = photo,
+    workEXP = workEXP,
+    occupation = occupation,
+    description = description,
+    phoneNumber = phoneNumber,
+    email = email,
+    instagram = instagram,
+    gallery = gallery.map { it.toUI() },
+    rating = rating,
+    countReviews = countReviews
+)
+
 data class DesignerGalleryUI(
     val about:String,
     val image:String
+)
+
+fun DesignerGalleryModel.toUI() = DesignerGalleryUI(
+    about = about,
+    image = image
 )

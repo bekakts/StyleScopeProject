@@ -1,15 +1,20 @@
 package com.example.stylescopeproject.presentation.model.company
 
+import com.example.stylescopeproject.domain.model.company.CompanyDesignerModel
+import com.example.stylescopeproject.domain.model.company.CompanyDetailModel
 import com.example.stylescopeproject.domain.model.company.CompanyModel
+import com.example.stylescopeproject.domain.model.company.CompanyPackageModel
+import com.example.stylescopeproject.domain.model.company.GalleryModel
+import com.example.stylescopeproject.domain.model.company.ServicesModel
 
 data class CompanyUI(
-    val id: Int? = null,
-    val image: String? = null,
-    val title: String? = null,
-    val summary: String? = null,
-    val views: Int? = null,
-    val rating: String? = null,
-    val countReviews: String? = null
+    val id: Int,
+    val image: String,
+    val title: String,
+    val summary: String,
+    val views: Int,
+    val rating: String,
+    val countReviews: String
 )
 
 fun CompanyModel.toUI() = CompanyUI(
@@ -31,26 +36,41 @@ data class CompanyDetailUI(
     val services: List<ServicesUI>,
     val gallery: List<GalleryUI>,
     val packages: List<CompanyPackageUI>,
-    val designers: List<DesignerUI>,
+    val designers: List<CompanyDesignerUI>,
     val countReviews: String,
     val reviews: List<Int>,
     val phoneNumber1: String,
-    val phoneNumber2: String,
-    val phoneNumber3: String,
     val email1: String,
-    val email2: String,
-    val email3: String,
     val socialMedia1: String,
-    val socialMedia2: String,
-    val socialMedia3: String,
-    val socialMedia4: String,
     val address: String
+)
+
+fun CompanyDetailModel.toUI() = CompanyDetailUI(
+    siteLink = siteLink,
+    image = image,
+    title = title,
+    summary = summary,
+    about = about,
+    services = services.map { it.toUI() },
+    gallery = gallery.map { it.toUI() },
+    packages = packages.map { it.toUI() },
+    designers = designers.map { it.toUI() },
+    countReviews,
+    reviews,
+    phoneNumber1,
+    email1,
+    socialMedia1,
+    address
 )
 
 data class ServicesUI(
     val id: Int,
     val title: String,
     val description: String
+)
+
+fun ServicesModel.toUI() = ServicesUI(
+    id, title, description
 )
 
 data class GalleryUI(
@@ -60,6 +80,10 @@ data class GalleryUI(
     val about: String
 )
 
+fun GalleryModel.toUI() = GalleryUI(
+    id, company, image, about
+)
+
 data class CompanyPackageUI(
     val image: String,
     val title: String,
@@ -67,11 +91,26 @@ data class CompanyPackageUI(
     val price: Int
 )
 
-data class DesignerUI(
+fun CompanyPackageModel.toUI() = CompanyPackageUI(
+    image = image,
+    title = title,
+    description = description,
+    price = price
+)
+data class CompanyDesignerUI(
     val photo: String,
     val name: String,
-    val companyTitle: String,
+    val companyTitle: List<String>,
     val occupation: String,
     val rating: String,
     val countReviews: String
+)
+
+fun CompanyDesignerModel.toUI() = CompanyDesignerUI(
+    photo = photo,
+    name = name,
+    companyTitle = companyTitle,
+    occupation = occupation,
+    rating = rating,
+    countReviews = countReviews
 )

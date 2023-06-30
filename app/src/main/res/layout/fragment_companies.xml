@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.ui.fragments.CompaniesFragment">
+    tools:context=".presentation.ui.fragments.pager.company.CompaniesFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -167,8 +167,6 @@
                         android:text="Применить"
                         android:textAllCaps="false"
                         app:cornerRadius="8dp" />
-
-
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -180,6 +178,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="14dp"
         android:paddingHorizontal="14dp"
+        android:layout_marginBottom="8dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:spanCount="2"

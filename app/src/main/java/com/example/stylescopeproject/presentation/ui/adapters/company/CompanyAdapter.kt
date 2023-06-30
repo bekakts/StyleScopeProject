@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.example.stylescopeproject.databinding.ItemCompaniesBinding
 import com.example.stylescopeproject.presentation.model.company.CompanyUI
-import com.example.stylescopeproject.presentation.utils.loadImage
 
-class CompanyAdapter : ListAdapter<CompanyUI, CompanyAdapter.CompanyViewHolder>(CompanyDiffCallback()) {
+class CompanyAdapter(private val click: (id: Int) -> Unit) : ListAdapter<CompanyUI, CompanyAdapter.CompanyViewHolder>(CompanyDiffCallback()) {
     class CompanyDiffCallback : DiffUtil.ItemCallback<CompanyUI>(){
         override fun areItemsTheSame(oldItem: CompanyUI, newItem: CompanyUI): Boolean =
             oldItem == newItem
@@ -19,14 +19,18 @@ class CompanyAdapter : ListAdapter<CompanyUI, CompanyAdapter.CompanyViewHolder>(
 
     }
 
-    class CompanyViewHolder(private val binding: ItemCompaniesBinding) : ViewHolder(binding.root) {
+    inner class CompanyViewHolder(private val binding: ItemCompaniesBinding) : ViewHolder(binding.root) {
         fun onBind(model: CompanyUI?) {
-            model?.image?.let { binding.itemImgCompany.loadImage(it) }
+            Glide.with(binding.root).load(model?.image).centerCrop().into(binding.itemImgCompany)
             binding.itemTvCompanyName.text = model?.title
             binding.itemTvCompanyDes.text = model?.summary
             binding.itemTvViews.text = model?.views.toString()
             val rating = model?.rating?.toFloat()
             binding.itemRatingImg.rating = rating!!
+
+            itemView.setOnClickListener {
+                click(model.id)
+            }
         }
     }
 

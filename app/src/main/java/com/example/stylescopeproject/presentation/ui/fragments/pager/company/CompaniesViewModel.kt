@@ -1,4 +1,4 @@
-package com.example.stylescopeproject.presentation.ui.fragments
+package com.example.stylescopeproject.presentation.ui.fragments.pager.company
 
 import com.example.stylescopeproject.core.BaseViewModel
 import com.example.stylescopeproject.domain.use_cases.company.GetCompanyUseCase

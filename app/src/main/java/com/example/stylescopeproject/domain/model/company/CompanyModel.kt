@@ -1,13 +1,13 @@
 package com.example.stylescopeproject.domain.model.company
 
 data class CompanyModel(
-    val id: Int? = null,
-    val image: String? = null,
-    val title: String? = null,
-    val summary: String? = null,
-    val views: Int? = null,
-    val rating: String? = null,
-    val countReviews: String? = null
+    val id: Int,
+    val image: String,
+    val title: String,
+    val summary: String,
+    val views: Int,
+    val rating: String,
+    val countReviews: String
 )
 
 data class CompanyDetailModel(
@@ -19,19 +19,12 @@ data class CompanyDetailModel(
     val services: List<ServicesModel>,
     val gallery: List<GalleryModel>,
     val packages: List<CompanyPackageModel>,
-    val designers: List<Designer>,
+    val designers: List<CompanyDesignerModel>,
     val countReviews: String,
     val reviews: List<Int>,
     val phoneNumber1: String,
-    val phoneNumber2: String,
-    val phoneNumber3: String,
     val email1: String,
-    val email2: String,
-    val email3: String,
     val socialMedia1: String,
-    val socialMedia2: String,
-    val socialMedia3: String,
-    val socialMedia4: String,
     val address: String
 )
 
@@ -55,10 +48,10 @@ data class CompanyPackageModel(
     val price: Int
 )
 
-data class Designer(
+data class CompanyDesignerModel(
     val photo: String,
     val name: String,
-    val companyTitle: String,
+    val companyTitle: List<String>,
     val occupation: String,
     val rating: String,
     val countReviews: String
