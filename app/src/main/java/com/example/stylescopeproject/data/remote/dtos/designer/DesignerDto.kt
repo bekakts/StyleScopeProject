@@ -16,7 +16,7 @@ data class DesignerDto(
     val rating: String,
     @SerializedName("count_reviews")
     val countReviews: String
-) : DataMapper<DesignerModel> {
+): DataMapper<DesignerModel> {
     override fun toDomain() = DesignerModel(
         id = id,
         name = name,
@@ -44,7 +44,7 @@ data class DesignerDetailDto(
     val rating: String,
     @SerializedName("count_reviews")
     val countReviews: String
-) : DataMapper<DesignerDetailModel> {
+): DataMapper<DesignerDetailModel> {
     override fun toDomain() = DesignerDetailModel(
         name = name,
         surname = surname,
@@ -64,7 +64,7 @@ data class DesignerDetailDto(
 data class DesignerGalleryDto(
     val about: String,
     val image: String
-) : DataMapper<DesignerGalleryModel> {
+): DataMapper<DesignerGalleryModel> {
     override fun toDomain() = DesignerGalleryModel(
         about = about,
         image = image

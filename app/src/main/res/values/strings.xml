@@ -11,4 +11,9 @@
     <string name="job">Профессия</string>
     <string name="experience">Компания</string>
     <string name="work_exp">Опыт работы</string>
+    <string name="urmat_tv_register">Регистрация</string>
+    <string name="urmat_tv_have_acc">Есть аккаунт?</string>
+    <string name="urmat_tv_inter">Войти</string>
+    <string name="urmat_tv_name_person">Имя пользователя</string>
+
 </resources>

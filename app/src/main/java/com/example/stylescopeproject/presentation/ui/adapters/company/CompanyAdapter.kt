@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.stylescopeproject.databinding.ItemCompaniesBinding
 import com.example.stylescopeproject.presentation.model.company.CompanyUI
+import com.example.stylescopeproject.presentation.utils.loadImage
 
 class CompanyAdapter(private val click: (id: Int) -> Unit) : ListAdapter<CompanyUI, CompanyAdapter.CompanyViewHolder>(CompanyDiffCallback()) {
     class CompanyDiffCallback : DiffUtil.ItemCallback<CompanyUI>(){
@@ -22,6 +23,7 @@ class CompanyAdapter(private val click: (id: Int) -> Unit) : ListAdapter<Company
     inner class CompanyViewHolder(private val binding: ItemCompaniesBinding) : ViewHolder(binding.root) {
         fun onBind(model: CompanyUI?) {
             Glide.with(binding.root).load(model?.image).centerCrop().into(binding.itemImgCompany)
+            binding.itemImgCompany.loadImage(model?.image.toString())
             binding.itemTvCompanyName.text = model?.title
             binding.itemTvCompanyDes.text = model?.summary
             binding.itemTvViews.text = model?.views.toString()
