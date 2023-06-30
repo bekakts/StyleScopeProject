@@ -53,7 +53,7 @@
 
     <fragment
         android:id="@+id/companiesFragment"
-        android:name="com.example.stylescopeproject.presentation.ui.fragments.CompaniesFragment"
+        android:name="com.example.stylescopeproject.presentation.ui.fragments.pager.company.CompaniesFragment"
         android:label="fragment_companies"
         tools:layout="@layout/fragment_companies" />
     <fragment
@@ -86,4 +86,9 @@
         android:name="com.example.stylescopeproject.presentation.ui.fragments.success.SuccessFragment"
         android:label="fragment_success"
         tools:layout="@layout/fragment_success" />
+    <fragment
+        android:id="@+id/designerFragment"
+        android:name="com.example.stylescopeproject.presentation.ui.fragments.pager.designer.DesignerFragment"
+        android:label="fragment_designer"
+        tools:layout="@layout/fragment_designer" />
 </navigation>

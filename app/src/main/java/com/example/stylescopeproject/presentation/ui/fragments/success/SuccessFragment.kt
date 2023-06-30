@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.stylescopeproject.R
 import com.example.stylescopeproject.core.BaseFragment
@@ -15,4 +16,9 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(R
     override val binding: FragmentSuccessBinding by viewBinding(FragmentSuccessBinding::bind)
     override val viewModel: SuccessViewModel by viewModel()
 
+    override fun constructListeners() {
+        binding.btnToMain.setOnClickListener {
+            findNavController().navigate(R.id.mainFragment)
+        }
+    }
 }

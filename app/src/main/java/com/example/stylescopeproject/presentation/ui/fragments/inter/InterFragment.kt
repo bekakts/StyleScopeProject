@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.stylescopeproject.R
 import com.example.stylescopeproject.core.BaseFragment
@@ -15,4 +16,17 @@ class InterFragment : BaseFragment<FragmentInterBinding, InterViewModel>(R.layou
     override val binding: FragmentInterBinding by viewBinding(FragmentInterBinding::bind)
     override val viewModel: InterViewModel by viewModel()
 
+    override fun constructListeners() {
+        binding.btnInter.setOnClickListener {
+            findNavController().navigate(R.id.successFragment)
+        }
+
+        binding.btnGo.setOnClickListener {
+            findNavController().navigate(R.id.mainFragment)
+        }
+
+        binding.tvRegister.setOnClickListener {
+            findNavController().navigate(R.id.registerFragment)
+        }
+    }
 }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.stylescopeproject.R
 import com.example.stylescopeproject.core.BaseFragment
@@ -16,4 +17,14 @@ class ConfirmCodeFragment :
     override val binding: FragmentConfirmCodeBinding by viewBinding(FragmentConfirmCodeBinding::bind)
     override val viewModel: ConfirmCodeViewModel by viewModel()
 
+
+    override fun constructListeners() {
+        binding.btnConfirm.setOnClickListener {
+            findNavController().navigate(R.id.successFragment)
+        }
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
 }
