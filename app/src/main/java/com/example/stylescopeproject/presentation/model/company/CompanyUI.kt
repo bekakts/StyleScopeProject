@@ -1,6 +1,7 @@
 package com.example.stylescopeproject.presentation.model.company
 
 import com.example.stylescopeproject.domain.model.company.CompanyModel
+import com.example.stylescopeproject.domain.model.designer.DesignerModel
 
 data class CompanyUI(
     val id: Int? = null,
@@ -70,8 +71,17 @@ data class CompanyPackageUI(
 data class DesignerUI(
     val photo: String,
     val name: String,
-    val companyTitle: String,
+    val companyTitle: List<String>,
     val occupation: String,
     val rating: String,
     val countReviews: String
+)
+
+fun DesignerModel.toUI() = DesignerUI(
+    photo = photo,
+    name = name,
+    companyTitle = companyTitle,
+    occupation = occupation,
+    rating= rating,
+    countReviews = countReviews
 )

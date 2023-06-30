@@ -5,5 +5,9 @@
     <string name="splash_title">Ваш проводник в мир дизайна</string>
     <string name="sorry_bad_request">Извините, нам не удалось ничего найти по запросу</string>
     <string name="try_to_search_another">Попробуйте поискать другое</string>
+    <string name="urmat_tv_register">Регистрация</string>
+    <string name="urmat_tv_have_acc">Есть аккаунт?</string>
+    <string name="urmat_tv_inter">Войти</string>
+    <string name="urmat_tv_name_person">Имя пользователя</string>
 
 </resources>

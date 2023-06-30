@@ -1,5 +1,6 @@
 package com.example.stylescopeproject.presentation.ui.adapters.company
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -21,7 +22,7 @@ class CompanyAdapter : ListAdapter<CompanyUI, CompanyAdapter.CompanyViewHolder>(
 
     class CompanyViewHolder(private val binding: ItemCompaniesBinding) : ViewHolder(binding.root) {
         fun onBind(model: CompanyUI?) {
-            model?.image?.let { binding.itemImgCompany.loadImage(it) }
+            binding.itemImgCompany.loadImage(model?.image.toString())
             binding.itemTvCompanyName.text = model?.title
             binding.itemTvCompanyDes.text = model?.summary
             binding.itemTvViews.text = model?.views.toString()

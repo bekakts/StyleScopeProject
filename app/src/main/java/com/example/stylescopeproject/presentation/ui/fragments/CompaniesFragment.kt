@@ -1,5 +1,6 @@
 package com.example.stylescopeproject.presentation.ui.fragments
 
+import android.util.Log
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import by.kirich1409.viewbindingdelegate.viewBinding

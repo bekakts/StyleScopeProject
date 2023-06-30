@@ -1,5 +1,10 @@
 package com.example.stylescopeproject.data.remote.dtos.designer
 
+import android.provider.ContactsContract.Data
+import com.example.stylescopeproject.data.mapper.DataMapper
+import com.example.stylescopeproject.domain.model.designer.DesignerDetailModel
+import com.example.stylescopeproject.domain.model.designer.DesignerGalleryModel
+import com.example.stylescopeproject.domain.model.designer.DesignerModel
 import com.google.gson.annotations.SerializedName
 
 data class Designer(
@@ -12,7 +17,17 @@ data class Designer(
     val rating: String,
     @SerializedName("count_reviews")
     val countReviews: String
-)
+): DataMapper<DesignerModel> {
+    override fun toDomain() = DesignerModel(
+        id = id,
+        name = name,
+        photo = photo,
+        companyTitle = companyTitle,
+        occupation = occupation,
+        rating = rating,
+        countReviews = countReviews
+    )
+}
 
 data class DesignerDetailDto(
     val name:String,
@@ -30,9 +45,29 @@ data class DesignerDetailDto(
     val rating:String,
     @SerializedName("count_reviews")
     val countReviews:String
-)
+): DataMapper<DesignerDetailModel> {
+    override fun toDomain() = DesignerDetailModel(
+        name = name,
+        surname = surname,
+        photo = photo,
+        workEXP = workEXP,
+        occupation = occupation,
+        description = description,
+        phoneNumber = phoneNumber,
+        email = email,
+        instagram = instagram,
+        gallery = gallery.map { it.toDomain() },
+        rating = rating,
+        countReviews = countReviews
+    )
+}
 
 data class DesignerGalleryDto(
     val about:String,
     val image:String
-)
+): DataMapper<DesignerGalleryModel> {
+    override fun toDomain() = DesignerGalleryModel(
+        about = about,
+        image = image
+    )
+}

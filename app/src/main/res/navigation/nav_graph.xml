@@ -3,11 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/companiesFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/companiesFragment"
         android:name="com.example.stylescopeproject.presentation.ui.fragments.CompaniesFragment"
         android:label="fragment_companies"
         tools:layout="@layout/fragment_companies" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.stylescopeproject.presentation.ui.fragments.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/confirmCodeFragment"
+        android:name="com.example.stylescopeproject.presentation.ui.fragments.confirm.ConfirmCodeFragment"
+        android:label="fragment_confirm_code"
+        tools:layout="@layout/fragment_confirm_code" />
+    <fragment
+        android:id="@+id/interFragment"
+        android:name="com.example.stylescopeproject.presentation.ui.fragments.inter.InterFragment"
+        android:label="fragment_inter"
+        tools:layout="@layout/fragment_inter" />
+    <fragment
+        android:id="@+id/recoveryFragment"
+        android:name="com.example.stylescopeproject.presentation.ui.fragments.recovery.RecoveryFragment"
+        android:label="fragment_recovery"
+        tools:layout="@layout/fragment_recovery" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.stylescopeproject.presentation.ui.fragments.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.example.stylescopeproject.presentation.ui.fragments.success.SuccessFragment"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" />
 </navigation>
